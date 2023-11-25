@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('contact_no')->nullable();
             $table->date('dob')->nullable();
+            $table->integer("role")->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
