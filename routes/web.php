@@ -26,6 +26,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard',[HomeController::class,'Home'])->name('dashboard');
+    Route::get('/home',[HomeController::class,'Home'])->name('dashboard');
+
 
 
     Route::get('/dashboard/upload-prescription', [PrescriptionController::class, 'showUploadForm'])->name('user.upload.prescription');
@@ -36,9 +38,9 @@ Route::middleware([
 
 
 Route::middleware('isadmin')->group(function (){
-    Route::get('/drugs/create', [DrugController::class,'create'])->name('drugs.create');
-    Route::post('/drugs/store', [DrugController::class,'store'])->name('drugs.store');
-    Route::get('/drugs', [DrugController::class,'index'])->name('drugs.index');
+    Route::get('/drugs/create', [DrugController::class,'create'])->name('admin.drugs.create');
+    Route::post('/drugs/store', [DrugController::class,'store'])->name('admin.drugs.store');
+    Route::get('/drugs', [DrugController::class,'index'])->name('admin.drugs.index');
 });
 
 });

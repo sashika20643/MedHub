@@ -12,11 +12,11 @@ class DrugController extends Controller
 {
     $drugs = Drug::all();
 
-    return view('drugs.index', compact('drugs'));
+    return view('Admin.drugs.index', compact('drugs'));
 }
     public function create()
     {
-        return view('drugs.create');
+        return view('Admin.drugs.create');
     }
 
     public function store(Request $request)
