@@ -11,11 +11,11 @@
             <h2 class="mb-5"> Upload  Prescription</h2>
             <form action="{{route('user.store.prescription') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
-                <div class="form-group mb-4">
-                    <label for="prescription_file">File</label>
-                    <input type="file" class="form-control" id="prescription_file" name="prescription_file" required>
+                <div class="mb-3">
+                    <label for="images" class="form-label">Prescription Images (less than 5 images)</label>
+                    <input type="file" name="images[]" class="form-control" accept="image/*" multiple>
                 </div>
+
 
                 <div class="form-group mb-4">
                     <label for="description">Description</label>

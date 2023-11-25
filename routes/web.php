@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DrugController;
+use App\Http\Controllers\QuotationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,8 @@ Route::middleware('isadmin')->group(function (){
     Route::post('/drugs/store', [DrugController::class,'store'])->name('admin.drugs.store');
     Route::get('/drugs', [DrugController::class,'index'])->name('admin.drugs.index');
     Route::delete('/drugs/{drug}', [DrugController::class,'destroy'])->name('drugs.destroy');
+
+    Route::get('/admin-prescriptions', [QuotationController::class,'index'])->name('admin.prescriptions.index');
 });
 
 });

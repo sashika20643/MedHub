@@ -11,8 +11,23 @@ class Prescription extends Model
     protected $fillable = [
         'user_id',
         'description',
-        'prescription_file',
+
         'status',
     ];
+
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+    public function mainImage()
+    {
+        return $this->images()->first();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     use HasFactory;
 }

@@ -18,21 +18,32 @@ class PrescriptionController extends Controller
     {
         $request->validate([
             'description' => 'required|string',
-            'prescription_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images' => 'max:5'
         ]);
-
-        // Store the prescription file
-        $prescriptionFile = $request->file('prescription_file');
-        $prescriptionFileName = time() . '_' . $prescriptionFile->getClientOriginalName();
-        $prescriptionFile->storeAs('prescriptions', $prescriptionFileName, 'public');
-
-        // Create the prescription record in the database
-        Prescription::create([
+        $prescription =Prescription::create([
             'user_id' => auth()->user()->id,
             'description' => $request->input('description'),
-            'prescription_file' => $prescriptionFileName,
             'status' => 'uploaded',
+
         ]);
+
+        if ($request->hasFile('images')) {
+            $imageCount = 0;
+
+
+            foreach ($request->file('images') as $image) {
+                if ($imageCount < 5) {
+                    $path = $image->store('prescriptions', 'public');
+                    $prescription->images()->create(['path' => $path]);
+                    $imageCount++;
+                } else {
+                    break; // Break the loop if the maximum number of images is reached
+                }
+            }
+        }
+
+
 
         return redirect()->route('dashboard')->with('success', 'Prescription uploaded successfully.');
     }

@@ -28,8 +28,8 @@
                                                         <td>{{ $prescription->description }}</td>
                                                         <td>{{ $prescription->status }}</td>
                                                         <td>
-                                                            @if($prescription->prescription_file)
-                                                                <img src="{{ asset('storage/prescriptions/' . $prescription->prescription_file) }}" alt="Prescription Image" style="max-width: 100px;">
+                                                            @if($prescription->mainImage())
+                                                            <img src="{{ asset('storage/' . $prescription->mainImage()->path) }}" style="max-width: 100px" alt="Prescription Image">
                                                             @else
                                                                 No Image
                                                             @endif
@@ -38,7 +38,7 @@
                                                             @if($prescription->status == 'processed')
                                                                 <a href="{{ route('prescriptions.show', $prescription->id) }}" class="btn btn-primary">Show Prescription</a>
                                                             @else
-                                                            <button href="#" disabled="true" class="btn btn-primary">Show Prescription</button>
+                                                            <button href="#" disabled="true" class="btn btn-primary">Show Qutation</button>
 
                                                             @endif
                                                         </td>

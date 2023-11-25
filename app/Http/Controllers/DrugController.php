@@ -36,6 +36,7 @@ class DrugController extends Controller
 {
     $drug->delete();
 
+
     return redirect()->route('admin.drugs.index')->with('success', 'Drug deleted successfully.');
 }
 
