@@ -26,7 +26,12 @@
                                                 @foreach($uploadedPrescriptions as $prescription)
                                                     <tr>
                                                         <td>{{ $prescription->description }}</td>
-                                                        <td>{{ $prescription->status }}</td>
+                                                        <td>@if ($prescription->status=="uploaded")
+                                                            <button class="btn btn-outline-primary">Quotation Uploaded</button>
+                                                        </td>
+                                                        @elseif($prescription->status=="quotation_sent")
+                                                        <button class="btn btn-outline-success">Quotation Recived</button>
+                                                        @endif
                                                         <td>
                                                             @if($prescription->mainImage())
                                                             <img src="{{ asset('storage/' . $prescription->mainImage()->path) }}" style="max-width: 100px" alt="Prescription Image">
@@ -36,7 +41,7 @@
                                                         </td>
                                                         <td>
                                                             @if($prescription->status == 'processed')
-                                                                <a href="{{ route('prescriptions.show', $prescription->id) }}" class="btn btn-primary">Show Prescription</a>
+                                                                <a href="{{ route('prescriptions.show', $prescription->id) }}" class="btn btn-primary">Show Qutation<</a>
                                                             @else
                                                             <button href="#" disabled="true" class="btn btn-primary">Show Qutation</button>
 

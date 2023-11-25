@@ -17,8 +17,8 @@
                         <p class="lead">Welcome to your Admin dashboard, {{ auth()->user()->name }}!</p>
 
                         <div class="mt-4 text-right">
-                            <a href="{{route('user.upload.prescription') }}" class="btn btn-primary">Upload Prescription</a>
-                            <a href="{{route('user.prescriptions') }}" class="btn btn-success">See Process</a>
+                            <a href="{{route('admin.drugs.index') }}" class="btn btn-primary">Drugs</a>
+                            <a href="{{route('admin.prescriptions.index') }}" class="btn btn-success">Prescriptions</a>
                         </div>
 
                         <div class="row mt-4 justify-content-center align-items-center">

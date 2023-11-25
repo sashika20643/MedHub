@@ -35,6 +35,7 @@ Route::middleware([
     Route::post('/dashboard/store-prescription', [PrescriptionController::class, 'Upload'])->name('user.store.prescription');
 
     Route::get('/dashboard/all-prescriptions', [PrescriptionController::class, 'show'])->name('user.prescriptions');
+    Route::get('/dashboard/quotation/{id}', [QuotationController::class, 'userQuotation'])->name('user.prescriptions');
 
 
 
@@ -45,6 +46,8 @@ Route::middleware('isadmin')->group(function (){
     Route::delete('/drugs/{drug}', [DrugController::class,'destroy'])->name('drugs.destroy');
 
     Route::get('/admin-prescriptions', [QuotationController::class,'index'])->name('admin.prescriptions.index');
+    Route::get('/quotation/add/{id}', [QuotationController::class,'create'])->name('admin.add-quotation');
+    Route::post('/admin-prescriptions/add-quotation', [QuotationController::class,'store'])->name('admin.store-quotation');
 });
 
 });

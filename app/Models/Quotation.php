@@ -13,4 +13,8 @@ class Quotation extends Model
         'quotation',
         'status'
     ];
+    public function prescription()
+    {
+        return $this->belongsTo(Prescription::class);
+    }
 }

@@ -29,5 +29,10 @@ class Prescription extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function quotation()
+    {
+        return $this->hasOne(Quotation::class);
+    }
     use HasFactory;
 }

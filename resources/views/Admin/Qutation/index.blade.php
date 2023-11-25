@@ -19,6 +19,7 @@
                                     <th>User</th>
                                     <th>Description</th>
                                     <th>Status</th>
+                                    <th>Customer</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -35,7 +36,28 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-primary">Add Quotation</a>
+                                            @if ($prescription->quotation)
+
+                                            @if($prescription->quotation->status == 'pending')
+                                            <button class="btn btn-outline-warning">pending</button>
+                                            @elseif ($prescription->quotation->status =='rejected' )
+                                            <button class="btn btn-outline-danger">Rejected</button>
+                                            @else
+                                            <button class="btn btn-outline-success">Approved</button>
+                                            @endif
+                                            @else
+                                            <button class="btn btn-outline-primary">No Cotation</button>
+                                            @endif
+
+
+                                        </td>
+                                        <td>
+                                            @if($prescription->status != 'quotation_sent')
+                                            <a href="{{ route('admin.add-quotation', $prescription->id) }}" class="btn btn-primary">Add Quotation</a>
+                                            @else
+                                            <button  class="btn btn-primary" disabled>Allready sended</button>
+
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
