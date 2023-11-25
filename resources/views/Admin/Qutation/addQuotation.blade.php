@@ -35,6 +35,9 @@
 
                     </tbody>
                 </table>
+                <div id="nettotal">
+
+                </div>
             </div>
 
             <div class="add-drugs mt-3">
@@ -74,6 +77,8 @@
 </div>
 
 <script>
+
+    var nettotal=0;
     function changeMainImage(imagePath) {
         document.getElementById('mainPrescriptionImage').src = imagePath;
     }
@@ -88,7 +93,7 @@
 
     var price = parseFloat(document.getElementById('drug').options[document.getElementById('drug').selectedIndex].dataset.price);
     var total = price * quantity;
-
+nettotal+=total;
     var quotationTable = document.querySelector('.sample-quotation table');
 
     quotationTable.querySelector('tbody').innerHTML += `
@@ -98,7 +103,7 @@
             <td>${total.toFixed(2)}</td>
         </tr>
     `;
-
+document.getElementById('nettotal').innerHTML=`<h3 class="text-right">Total : <span class="text-primary"> ${nettotal} </span></h3>`
     document.getElementById('drug').value = '';
     document.getElementById('quantity').value = '';
 }

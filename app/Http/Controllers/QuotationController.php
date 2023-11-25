@@ -49,4 +49,33 @@ public function store(Request $request)
         return redirect()->route('dashboard')->with('success', 'Quotation added successfully.');
     }
 
+    function userQuotation($id){
+        $quotation = Quotation::where('prescription_id',$id)->first();
+        return view('User.quotation',compact('quotation'));
+
+    }
+    function QuotationApprove($id){
+        $quotation = Quotation::find($id);
+
+        if (!$quotation) {
+            return redirect()->back()->with('error', 'Quotation not found.');
+        }
+
+        $quotation->status = "approved";
+        $quotation->save();
+
+        return redirect()->back();
+
+
+    }
+    function QuotationReject($id){
+        $prescription=Quotation::find($id);
+        $prescription->status="rejected";
+        $prescription->save();
+
+        return redirect()->back();
+
+
+    }
+
 }

@@ -20,7 +20,7 @@
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Customer</th>
-                                    <th>Action</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,7 +46,7 @@
                                             <button class="btn btn-outline-success">Approved</button>
                                             @endif
                                             @else
-                                            <button class="btn btn-outline-primary">No Cotation</button>
+                                            <button class="btn btn-outline-primary">No quotation</button>
                                             @endif
 
 

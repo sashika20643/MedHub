@@ -17,7 +17,7 @@
                         <p class="lead">Welcome to your dashboard, {{ auth()->user()->name }}!</p>
 
                         <div class="mt-4 text-right">
-                            <a href="{{route('user.upload.prescription') }}" class="btn btn-primary mb-2">Upload Prescription</a>
+                            <a href="{{route('user.upload.prescription') }}" class="btn btn-primary ">Upload Prescription</a>
                             <a href="{{route('user.prescriptions') }}" class="btn btn-success">See Process</a>
                         </div>
 
@@ -28,9 +28,8 @@
                                         Uploaded Prescriptions
                                     </div>
                                     <div class="card-body">
-                                        {{-- Display relevant information --}}
-                                        <p class="lead">Total: 5</p>
-                                        <a href="('dashboard.uploaded-prescriptions') }}" class="btn btn-primary">View Details</a>
+                                        <p class="lead">Total: {{$sended}}</p>
+                                        <a href="{{route('user.prescriptions') }}" class="btn btn-primary">View Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -38,25 +37,24 @@
                             <div class="col-md-4 mb-2">
                                 <div class="card border-success">
                                     <div class="card-header bg-success text-white">
-                                        Processing Prescriptions
+                                        Processed Prescriptions
                                     </div>
                                     <div class="card-body">
-                                        {{-- Display relevant information --}}
-                                        <p class="lead">Total: 3</p>
-                                        <a href="('dashboard.processing-prescriptions') }}" class="btn btn-success">View Details</a>
+                                        <p class="lead">Total: {{$recived}}</p>
+                                        <a href="{{route('user.prescriptions') }}" class="btn btn-success">View Details</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-4 mb-2">
-                                <div class="card border-info">
-                                    <div class="card-header bg-info text-white">
-                                        Processed Prescriptions
+                                <div class="card border-warning">
+                                    <div class="card-header bg-warning text-white">
+                                        Pending Prescriptions
                                     </div>
                                     <div class="card-body">
-                                        {{-- Display relevant information --}}
-                                        <p class="lead">Total: 10</p>
-                                        <a href="('dashboard.processed-prescriptions') }}" class="btn btn-info">View Details</a>
+
+                                        <p class="lead">Total: {{$pending}}</p>
+                                        <a href="{{route('user.prescriptions') }}" class="btn btn-warning">View Details</a>
                                     </div>
                                 </div>
                             </div>

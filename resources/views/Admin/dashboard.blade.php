@@ -28,35 +28,35 @@
                                         Uploaded Prescriptions
                                     </div>
                                     <div class="card-body">
-                                        {{-- Display relevant information --}}
-                                        <p class="lead">Total: 5</p>
-                                        <a href="('dashboard.uploaded-prescriptions') }}" class="btn btn-primary">View Details</a>
+                                        <p class="lead">Total: {{$recived}}</p>
+                                        <a href="{{route('admin.prescriptions.index') }}" class="btn btn-primary">View Details</a>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <div class="card border-success">
-                                    <div class="card-header bg-success text-white">
-                                        Processing Prescriptions
-                                    </div>
-                                    <div class="card-body">
-                                        {{-- Display relevant information --}}
-                                        <p class="lead">Total: 3</p>
-                                        <a href="('dashboard.processing-prescriptions') }}" class="btn btn-success">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
+
 
                             <div class="col-md-4">
                                 <div class="card border-info">
                                     <div class="card-header bg-info text-white">
-                                        Processed Prescriptions
+                                        Approved Quotations
                                     </div>
                                     <div class="card-body">
-                                        {{-- Display relevant information --}}
-                                        <p class="lead">Total: 10</p>
-                                        <a href="('dashboard.processed-prescriptions') }}" class="btn btn-info">View Details</a>
+
+                                        <p class="lead">Total: {{$approved}}</p>
+                                        <a href="{{route('admin.prescriptions.index') }}" class="btn btn-info">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-warning">
+                                    <div class="card-header bg-warning text-white">
+                                        Rejected Quotations
+                                    </div>
+                                    <div class="card-body">
+
+                                        <p class="lead">Total: {{$rejected}}</p>
+                                        <a href="{{route('admin.prescriptions.index') }}" class="btn btn-warning">View Details</a>
                                     </div>
                                 </div>
                             </div>

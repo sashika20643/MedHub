@@ -35,7 +35,11 @@ Route::middleware([
     Route::post('/dashboard/store-prescription', [PrescriptionController::class, 'Upload'])->name('user.store.prescription');
 
     Route::get('/dashboard/all-prescriptions', [PrescriptionController::class, 'show'])->name('user.prescriptions');
-    Route::get('/dashboard/quotation/{id}', [QuotationController::class, 'userQuotation'])->name('user.prescriptions');
+    Route::get('/dashboard/quotation/{id}', [QuotationController::class, 'userQuotation'])->name('user.quotation');
+    Route::get('/dashboard/quotation-approve/{id}', [QuotationController::class, 'QuotationApprove'])->name('user.quotation.approve');
+    Route::get('/dashboard/quotation-reject/{id}', [QuotationController::class, 'QuotationReject'])->name('user.quotation.reject');
+
+
 
 
 

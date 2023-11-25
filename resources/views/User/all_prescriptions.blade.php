@@ -27,7 +27,7 @@
                                                     <tr>
                                                         <td>{{ $prescription->description }}</td>
                                                         <td>@if ($prescription->status=="uploaded")
-                                                            <button class="btn btn-outline-primary">Quotation Uploaded</button>
+                                                            <button class="btn btn-outline-primary">Prescription Uploaded</button>
                                                         </td>
                                                         @elseif($prescription->status=="quotation_sent")
                                                         <button class="btn btn-outline-success">Quotation Recived</button>
@@ -40,10 +40,10 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if($prescription->status == 'processed')
-                                                                <a href="{{ route('prescriptions.show', $prescription->id) }}" class="btn btn-primary">Show Qutation<</a>
+                                                            @if($prescription->status == 'quotation_sent')
+                                                                <a href="{{ route('user.quotation',$prescription->id ) }}" class="btn btn-primary">Show Qutation</a>
                                                             @else
-                                                            <button href="#" disabled="true" class="btn btn-primary">Show Qutation</button>
+                                                            <button href="{{ route('user.quotation',$prescription->id ) }}" disabled="true" class="btn btn-primary">Show Qutation</button>
 
                                                             @endif
                                                         </td>
