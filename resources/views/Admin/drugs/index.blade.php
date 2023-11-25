@@ -29,7 +29,13 @@
                                             <td>{{ $drug->name }}</td>
                                             <td>{{ $drug->price }}</td>
                                             <td>{{ $drug->quantity }}</td>
-                                            <td><a href="" class="btn btn-danger "> Delete</a></td>
+                                            <td>
+                                                <form method="post" action="{{ route('drugs.destroy', $drug->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

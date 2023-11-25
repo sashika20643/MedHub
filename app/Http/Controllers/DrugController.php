@@ -31,4 +31,12 @@ class DrugController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Drug added successfully.');
     }
+
+    public function destroy(Drug $drug)
+{
+    $drug->delete();
+
+    return redirect()->route('admin.drugs.index')->with('success', 'Drug deleted successfully.');
+}
+
 }

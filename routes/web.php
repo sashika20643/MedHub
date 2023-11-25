@@ -41,6 +41,7 @@ Route::middleware('isadmin')->group(function (){
     Route::get('/drugs/create', [DrugController::class,'create'])->name('admin.drugs.create');
     Route::post('/drugs/store', [DrugController::class,'store'])->name('admin.drugs.store');
     Route::get('/drugs', [DrugController::class,'index'])->name('admin.drugs.index');
+    Route::delete('/drugs/{drug}', [DrugController::class,'destroy'])->name('drugs.destroy');
 });
 
 });
