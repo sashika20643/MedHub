@@ -3,6 +3,16 @@
     <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-md-9">
+
+                <div style="width:100vw; padding:5px;">
+
+                    @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error!</strong> Please check the form and try again.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                </div>
 <div class="card p-3">
     <div class="card-header mb-4">Input valid details.</div>
 
@@ -29,7 +39,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary">Create Book</button>
+                <button type="submit" class="btn btn-primary">Create Drug</button>
             </form>
         </div>
 

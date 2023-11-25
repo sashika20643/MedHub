@@ -4,6 +4,16 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
 
+                <div style="width:100vw; padding:5px;">
+
+                    @if($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error!</strong> Please check the form and try again.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                </div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4">

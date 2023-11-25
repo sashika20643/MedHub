@@ -16,7 +16,9 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>Date</th>
                                     <th>User</th>
+                                    <th>Address</th>
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Customer</th>
@@ -26,7 +28,9 @@
                             <tbody>
                                 @foreach($prescriptions as $prescription)
                                     <tr>
+                                        <td>{{ $prescription->created_at }}</td>
                                         <td>{{ $prescription->user->name }}</td>
+                                        <td>{{ $prescription->user->address }}</td>
                                         <td>{{ $prescription->description }}</td>
                                         <td>
                                             @if($prescription->status == 'quotation_sent')
